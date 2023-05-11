@@ -1,20 +1,7 @@
 import { useMemo } from 'react'
-import { useQuery, gql } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import { generateRandomNumber } from '../utils/utils';
-
-const GET_CHARACTERS = gql`
-  query getCharacters($page: Int) {
-    characters(page: $page) {
-      results {
-        id
-        name
-        status
-        species
-        image
-      }
-    }
-  }
-`
+import { GET_CHARACTERS } from '../graphql/queries';
 
 export const useCharacters = () => {
   const page = useMemo(() => generateRandomNumber(), []);

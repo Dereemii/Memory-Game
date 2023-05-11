@@ -19,13 +19,11 @@ Para ejecutar el proyecto en modo de desarrollo, ejecute el siguiente comando en
 npm run dev
 ```
 
-
 Para compilar el proyecto para producción, ejecute el siguiente comando en la terminal:
 
 ```
 npm run build
 ```
-
 
 ## Dependencias
 
@@ -54,6 +52,26 @@ Las siguientes son las dependencias de desarrollo utilizadas en el proyecto:
 - `prettier`: Herramienta para formatear código.
 - `typescript`: Lenguaje de programación TypeScript.
 - `vite`: Herramienta de construcción y desarrollo de aplicaciones web.
+
+## Estructura de carpetas
+
+```
+├── example.json
+├── index.html
+├── index.js
+├── package.json
+├── package-lock.json
+├── README.md
+└── src
+    ├── app.js
+    ├── models.js
+    ├── routes.js
+    └── utils
+        ├── another.js
+        ├── constants.js
+        └── index.js
+```
+
 
 ## Autores
 
