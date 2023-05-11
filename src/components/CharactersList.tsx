@@ -16,19 +16,17 @@ export const CharactersList = ({ sideBySide }: Props) => {
   if (error) return <div>Error!</div>
 
   const characters = data?.characters?.results?.slice(0, 6) || []
-
-  let charactersToShow = []
+  let charactersToRender = [...characters, ...characters]
 
   if (sideBySide) {
-    charactersToShow = sortCharactersById(characters)
+    charactersToRender = sortCharactersById(charactersToRender)
   } else {
-    const shuffleCharacters = [...characters, ...characters]
-    charactersToShow = shuffleCharacters.sort(() => Math.random() - 0.5)
+    charactersToRender.sort(() => Math.random() - 0.5)
   }
 
   return (
     <div className="parent">
-      {charactersToShow.map((character) => (
+      {charactersToRender.map((character) => (
         <CharacterCard key={nanoid()} character={character} />
       ))}
     </div>
