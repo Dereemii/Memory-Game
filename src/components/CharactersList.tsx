@@ -5,16 +5,26 @@ import { sortCharactersById } from '../utils/utils'
 
 import { nanoid } from 'nanoid'
 
-export const CharactersList = () => {
+type Props = {
+  sideBySide?: boolean
+}
+
+export const CharactersList = ({ sideBySide }: Props) => {
   const { error, loading, data } = useCharacters()
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error!</div>
 
   const characters = data?.characters?.results?.slice(0, 6) || []
-  const doubledCharacters = [...characters, ...characters]
-  const charactersToShow = sortCharactersById(doubledCharacters)
 
+  let charactersToShow = []
+
+  if (sideBySide) {
+    charactersToShow = sortCharactersById(characters)
+  } else {
+    const shuffleCharacters = [...characters, ...characters]
+    charactersToShow = shuffleCharacters.sort(() => Math.random() - 0.5)
+  }
 
   return (
     <div className="parent">

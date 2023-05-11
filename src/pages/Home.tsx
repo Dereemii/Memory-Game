@@ -2,6 +2,9 @@ import { CharactersList } from '../components/CharactersList'
 
 export const Home = () => {
   return (
-      <CharactersList />
+      <div>
+        <h1>hola</h1>
+        <CharactersList/>
+      </div>
   )
 }

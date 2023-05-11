@@ -6,7 +6,7 @@ type Props = {
 
 export const CharacterCard = ({ character }: Props) => {
   return (
-    <div className="child">
+    <div>
       <img src={character.image} alt={character.name} className="img-card" />
       <div>{character.name}</div>
       <div>{character.status}</div>
