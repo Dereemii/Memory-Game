@@ -1,28 +1,33 @@
 import { useCharacters } from '../hooks/useCharacters'
 import { CharacterCard } from './CharacterCard'
 
-import { sortCharactersById } from '../utils/utils'
+import {
+  duplicateCharacters,
+  shuffleCharacters,
+  sortCharactersById,
+} from '../utils/utils'
+
+import { Characters } from '../types/Characters'
 
 import { nanoid } from 'nanoid'
 
 type Props = {
-  sideBySide?: boolean
+  cardsSideBySide: boolean
 }
 
-export const CharactersList = ({ sideBySide }: Props) => {
+export const CharactersList = ({ cardsSideBySide }: Props) => {
   const { error, loading, data } = useCharacters()
+  const characters = data?.characters?.results?.slice(0, 6) || []
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error!</div>
 
-  const characters = data?.characters?.results?.slice(0, 6) || []
-  let charactersToRender = [...characters, ...characters]
-
-  if (sideBySide) {
-    charactersToRender = sortCharactersById(charactersToRender)
-  } else {
-    charactersToRender.sort(() => Math.random() - 0.5)
+  const getCharactersToRender = (characters: Characters[], layout: boolean) => {
+    const charactersToRender = duplicateCharacters(characters)
+    return layout ? sortCharactersById(charactersToRender) : shuffleCharacters(charactersToRender)
   }
+
+  const charactersToRender = getCharactersToRender(characters, cardsSideBySide)
 
   return (
     <div className="parent">

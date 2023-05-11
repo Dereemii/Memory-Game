@@ -5,7 +5,7 @@ export const Game = () => {
     <div>
       <h1>juego de memoria</h1>
       <span>ACIERTOS</span> <span>TURNOS</span>
-      <CharactersList />
+      <CharactersList cardsSideBySide={false} />
     </div>
   )
 }

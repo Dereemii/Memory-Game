@@ -9,3 +9,10 @@ export const sortCharactersById = (characters: Characters[]) => {
   return [...characters].sort((a, b) => Number(a.id) - Number(b.id));
 };
 
+export const shuffleCharacters = (characters: Characters[]) => {
+  return [...characters].sort(() => Math.random() - 0.5);
+}
+
+export const duplicateCharacters = (characters: Characters[]) => {
+  return [...characters, ...characters];
+}
