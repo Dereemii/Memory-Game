@@ -56,20 +56,31 @@ Las siguientes son las dependencias de desarrollo utilizadas en el proyecto:
 ## Estructura de carpetas
 
 ```
-├── example.json
-├── index.html
-├── index.js
-├── package.json
-├── package-lock.json
-├── README.md
-└── src
-    ├── app.js
-    ├── models.js
-    ├── routes.js
-    └── utils
-        ├── another.js
-        ├── constants.js
-        └── index.js
+src
+ ┣ assets
+ ┃ ┣ images
+ ┃ ┗ scss
+ ┃ ┃ ┣ base
+ ┃ ┃ ┣ components
+ ┃ ┃ ┣ layout
+ ┃ ┃ ┗ main.scss
+ ┣ components
+ ┃ ┣ CharacterCard.tsx
+ ┃ ┗ CharactersList.tsx
+ ┣ graphql
+ ┃ ┗ queries.ts
+ ┣ hooks
+ ┃ ┗ useCharacters.tsx
+ ┣ pages
+ ┃ ┣ ErrorPage.tsx
+ ┃ ┗ Home.tsx
+ ┣ types
+ ┃ ┗ Characters.ts
+ ┣ utils
+ ┃ ┗ utils.ts
+ ┣ main.tsx
+ ┣ Routes.tsx
+ ┗ vite-env.d.ts
 ```
 
 
