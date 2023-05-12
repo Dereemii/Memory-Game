@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import {
@@ -12,6 +11,9 @@ import { RouterProvider } from 'react-router-dom'
 
 import { router } from './Routes'
 
+import { Provider } from 'react-redux'
+import { store } from './store/store'
+
 import './assets/scss/main.scss'
 
 const client = new ApolloClient({
@@ -22,9 +24,11 @@ const client = new ApolloClient({
 })
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+ 
+    <Provider store={store}>
     <ApolloProvider client={client}>
       <RouterProvider router={router} />
     </ApolloProvider>
-  </React.StrictMode>
+    </Provider>
+
 )

@@ -1,5 +1,9 @@
+import { Layout } from './Layout'
+
 export const NoMatch = () => {
   return (
-    <div>NoMatch route ups :c 😥</div>
+    <Layout>
+      <div>NoMatch route ups :c 😥</div>
+    </Layout>
   )
 }

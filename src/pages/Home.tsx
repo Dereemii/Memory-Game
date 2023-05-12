@@ -1,10 +1,16 @@
 import { CharactersList } from '../components/CharactersList'
+import { CustomButton } from '../components/CustomButton'
+import { CustomTitle } from '../components/CustomTitle'
+import { Layout } from './Layout'
 
 export const Home = () => {
   return (
-      <div>
-        <h1>hola</h1>
-        <CharactersList cardsSideBySide/>
+    <Layout>
+      <div className="yellow">
+        <CustomTitle leftText="Personajes"  />
+        <CharactersList cardsSideBySide />
+        <CustomButton text="Jugar" link="/game" style="button" />
       </div>
+    </Layout>
   )
 }
