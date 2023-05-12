@@ -8,14 +8,17 @@ type Props = {
 export const CustomTitle = ({
   leftText,
   rightText,
-  matchted,
-  turns,
+  matchted = 0,
+  turns = 0,
 }: Props) => {
+  const rightContent = rightText ? `${rightText} : ${turns}` : null
 
   return (
     <section className="title">
-      <div className="title-left">{leftText}: {matchted}</div>
-      <div className="title-right"> {rightText} {turns} </div>
+      <div className="title-left">
+        {leftText}: {matchted}
+      </div>
+      <div className="title-right"> {rightContent} </div>
     </section>
   )
 }
