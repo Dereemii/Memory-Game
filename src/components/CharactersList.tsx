@@ -4,16 +4,18 @@ import { CharacterCard } from './CharacterCard'
 import { shuffleCharacters, sortCharactersById } from '../utils/utils'
 
 import { Characters } from '../types/Characters'
-import {  useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
 
+
 type Props = {
   cardsSideBySide: boolean
+  flipCards: boolean
 }
 
-export const CharactersList = ({ cardsSideBySide }: Props) => {
+export const CharactersList = ({ cardsSideBySide, flipCards }: Props) => {
   const [choiceOne, setChoiceOne] = useState<Characters | null>(null)
   const [choiceTwo, setChoiceTwo] = useState<Characters | null>(null)
 
@@ -56,6 +58,7 @@ export const CharactersList = ({ cardsSideBySide }: Props) => {
           key={character.key}
           character={character}
           handleChoice={handleChoice}
+          flipCards={flipCards}
         />
       ))}
     </div>

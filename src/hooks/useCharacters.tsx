@@ -4,7 +4,7 @@ import { duplicateCharacters, generateRandomNumber } from '../utils/utils';
 import { GET_CHARACTERS } from '../graphql/queries';
 
 import { useDispatch } from 'react-redux';
-import { setCharacters } from '../store/CharactersSlice';
+import { setCharacters } from '../store/charactersSlice';
 import { nanoid } from 'nanoid';
 
 export const useFetchCharacters = () => {

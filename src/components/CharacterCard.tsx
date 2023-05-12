@@ -6,26 +6,34 @@ import { memo } from 'react'
 type Props = {
   character: Characters
   handleChoice: (character: Characters) => void
+  flipCards: boolean
 }
 
-export const CharacterCard = memo( ({ character, handleChoice }: Props) => {
-  const handleClick = () => {
-    handleChoice(character)
-  }
+export const CharacterCard = memo(
+  ({ character, handleChoice, flipCards }: Props) => {
+    const handleClick = () => {
+      handleChoice(character)
+    }
 
-  return (
-    <div className="card">
-      <div className="card-style front">
-        <img src={character.image} alt={character.name} className="card-img" />
-        <div className="card-name">{character.name}</div>
-        <div className="card-description">
-          {character.status} - {character.species}
+    return (
+      <div className="card">
+        <div className={`${flipCards ? 'card-style front' : 'card-style'}`}>
+          <img
+            src={character.image}
+            alt={character.name}
+            className="card-img"
+          />
+          <div className="card-name">{character.name}</div>
+          <div className="card-description">
+            {character.status} - {character.species}
+          </div>
         </div>
+        {flipCards && (
+          <div className="card-style back" onClick={handleClick}>
+            <img src={cover} alt="card back" />
+          </div>
+        )}
       </div>
-      <div className="card-style back" onClick={handleClick}>
-        <img src={cover} alt="card back" />
-      </div>
-    </div>
-  )
-}
+    )
+  }
 )

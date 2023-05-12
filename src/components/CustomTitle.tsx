@@ -15,7 +15,7 @@ export const CustomTitle = ({
   return (
     <section className="title">
       <div className="title-left">{leftText}: {matchted}</div>
-      <div className="title-right">{rightText}: {turns}</div>
+      <div className="title-right"> {rightText} {turns} </div>
     </section>
   )
 }

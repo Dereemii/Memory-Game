@@ -16,7 +16,7 @@ export const Game = () => {
           rightText="Turnos"
           turns={turns}
         />
-        <CharactersList cardsSideBySide={false} />
+        <CharactersList cardsSideBySide={false} flipCards />
       </div>
     </Layout>
   )
