@@ -1,3 +1,5 @@
 export * from './Home'
 export * from './Game'
 export * from './ErrorPage'
+export * from './Layout'
+export * from './NoMatch'
