@@ -1,42 +1,29 @@
-import { useEffect, useMemo } from 'react'
-import { useQuery } from '@apollo/client'
-import { duplicateCharacters, generateRandomNumber } from '../utils/utils';
-import { GET_CHARACTERS } from '../graphql/queries';
-
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCharacters } from '../store/charactersSlice';
 import { nanoid } from 'nanoid';
+import { useFetchCharacters } from './useFetchCharacters';
+import { duplicateCharacters } from '../utils/utils';
 
-export const useFetchCharacters = () => {
-  const page = useMemo(() => generateRandomNumber(), []);
-
-  const { loading, error, data } = useQuery(GET_CHARACTERS, {
-    variables: { page: Number(page) },
-  });
-
-  return {
-    loading,
-    error,
-    data,
-  };
-};
+const NUMBER_OF_CHARACTERS_TO_RENDER = 6;
 
 export const useCharacters = () => {
-  const dispatch = useDispatch();
-  const { loading, error, data } = useFetchCharacters();
+  const dispatch = useDispatch()
+  const { loading, error, data } = useFetchCharacters()
 
   useEffect(() => {
-    if (data) {
-      const charactersToRender = data?.characters?.results.slice(0, 6)
-      const duplicatedCharacters = duplicateCharacters(charactersToRender);
-      const duplicatedCharactersWithId = duplicatedCharacters.map(character => ({
-        ...character,
-        key: nanoid(2),
-      }));
-      dispatch(setCharacters(duplicatedCharactersWithId));
+    if (!data) {
+      return;
     }
+
+    const charactersToRender = data?.characters?.results.slice(0, NUMBER_OF_CHARACTERS_TO_RENDER);
+    const duplicatedCharactersWithId = duplicateCharacters(charactersToRender).map((character) => ({
+      ...character,
+      key: nanoid(2),
+    }));
+    dispatch(setCharacters(duplicatedCharactersWithId));
   }, [data, dispatch]);
-  
+
   return {
     error,
     data,
