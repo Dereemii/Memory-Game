@@ -1,89 +1,38 @@
-# Memory Game
+<h1 align="center">Welcome to memory-game 👋</h1>
+<p>
+  <a href="https://www.npmjs.com/package/memory-game" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/memory-game.svg">
+  </a>
+  <a href="https://twitter.com/dereemii" target="_blank">
+    <img alt="Twitter: dereemii" src="https://img.shields.io/twitter/follow/dereemii.svg?style=social" />
+  </a>
+</p>
 
-Este proyecto es un juego de memoria desarrollado con React, GraphQL, TypeScript y Vite.
-Utilizando la API de Rick and Morty [https://rickandmortyapi.com/graphql](https://rickandmortyapi.com/graphql)
+> Memory game using React, Typescript, GraphQl and ReduxToolkit
 
-## Instalación
+### ✨ [Demo](www.memori.com)
 
-Para instalar las dependencias del proyecto, asegúrese de tener [Node.js](https://nodejs.org/) y [npm](https://www.npmjs.com/) instalados en su máquina. Luego, ejecute el siguiente comando en la terminal:
+## Install
 
-```
+```sh
 npm install
 ```
 
-## Ejecución
+## Proyect History
 
-Para ejecutar el proyecto en modo de desarrollo, ejecute el siguiente comando en la terminal:
+[Click here](/BITACORA.md)
 
-```
-npm run dev
-```
+## Author
 
-Para compilar el proyecto para producción, ejecute el siguiente comando en la terminal:
+👤 **Leslie Herrera**
 
-```
-npm run build
-```
+* Twitter: [@dereemii](https://twitter.com/dereemii)
+* Github: [@Dereemii](https://github.com/Dereemii)
+* LinkedIn: [@dereemii](https://linkedin.com/in/dereemii)
 
-## Dependencias
+## Show your support
 
-Las siguientes son las dependencias utilizadas en el proyecto:
+Give a ⭐️ if this project helped you!
 
-- `@apollo/client`: Cliente de GraphQL para React.
-- `graphql`: Biblioteca para crear esquemas de GraphQL.
-- `nanoid`: Biblioteca para generar identificadores únicos.
-- `react`: Biblioteca para crear interfaces de usuario.
-- `react-dom`: Biblioteca para renderizar componentes de React en el navegador.
-- `react-router-dom`: Biblioteca para manejar el enrutamiento en aplicaciones de React.
-
-## Dependencias de desarrollo
-
-Las siguientes son las dependencias de desarrollo utilizadas en el proyecto:
-
-- `@types/react`: Tipos de TypeScript para React.
-- `@types/react-dom`: Tipos de TypeScript para ReactDOM.
-- `@typescript-eslint/eslint-plugin`: Plugin de ESLint para TypeScript.
-- `@typescript-eslint/parser`: Parser de ESLint para TypeScript.
-- `@vitejs/plugin-react`: Plugin de Vite para React.
-- `eslint`: Herramienta de linting de JavaScript.
-- `eslint-config-prettier`: Configuración de ESLint para Prettier.
-- `eslint-plugin-react-hooks`: Plugin de ESLint para los hooks de React.
-- `eslint-plugin-react-refresh`: Plugin de ESLint para React Refresh.
-- `prettier`: Herramienta para formatear código.
-- `typescript`: Lenguaje de programación TypeScript.
-- `vite`: Herramienta de construcción y desarrollo de aplicaciones web.
-
-## Estructura de carpetas
-
-```
-src
- ┣ assets
- ┃ ┣ images
- ┃ ┗ scss
- ┃ ┃ ┣ base
- ┃ ┃ ┣ components
- ┃ ┃ ┣ layout
- ┃ ┃ ┗ main.scss
- ┣ components
- ┃ ┣ CharacterCard.tsx
- ┃ ┗ CharactersList.tsx
- ┣ graphql
- ┃ ┗ queries.ts
- ┣ hooks
- ┃ ┗ useCharacters.tsx
- ┣ pages
- ┃ ┣ ErrorPage.tsx
- ┃ ┗ Home.tsx
- ┣ types
- ┃ ┗ Characters.ts
- ┣ utils
- ┃ ┗ utils.ts
- ┣ main.tsx
- ┣ Routes.tsx
- ┗ vite-env.d.ts
-```
-
-
-## Autores
-
-[Leslie Herrera](https://github.com/Dereemii)
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

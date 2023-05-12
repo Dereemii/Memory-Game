@@ -1,5 +1,5 @@
 import { GameContainer } from '../components/GameContainer'
-import { Layout } from './Layout'
+import { Layout } from '../components/Layout'
 
 export const Game = () => {
   return (
