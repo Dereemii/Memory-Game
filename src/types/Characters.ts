@@ -5,4 +5,5 @@ export interface Characters {
   species: string
   image: string
   key: string // This is a unique key added with nanoId library
+  matched: boolean
 }

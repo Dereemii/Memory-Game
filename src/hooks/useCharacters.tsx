@@ -19,7 +19,9 @@ export const useCharacters = () => {
     const charactersToRender = data?.characters?.results.slice(0, NUMBER_OF_CHARACTERS_TO_RENDER);
     const duplicatedCharactersWithId = duplicateCharacters(charactersToRender).map((character) => ({
       ...character,
-      key: nanoid(2),
+      key: nanoid(),
+      matched: false,
+      
     }));
     dispatch(setCharacters(duplicatedCharactersWithId));
   }, [data, dispatch]);

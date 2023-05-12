@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { Characters } from '../types/Characters'
 
 type CharactersState = {
@@ -16,8 +16,26 @@ const characterSlice = createSlice({
     setCharacters(state, action) {
       state.characters = action.payload
     },
+    setMatchedCharacters: (state, action: PayloadAction<number | string>) => {
+      const characterId = action.payload;
+      const updatedCharacters = state.characters.map((character) => {
+        if (character.id === characterId) {
+          return {
+            ...character,
+            matched: true,
+          };
+        }
+        return character;
+      });
+      state.characters = updatedCharacters;
+    },    
+    clearMatchedCharacters: (state) => {
+      state.characters.forEach((character) => {
+        character.matched = false;
+      });
+    },
   },
 })
 
-export const { setCharacters } = characterSlice.actions
+export const { setCharacters, clearMatchedCharacters, setMatchedCharacters } = characterSlice.actions
 export default characterSlice.reducer

@@ -1,16 +1,12 @@
-import { CharactersList } from '../components/CharactersList'
 import { CustomButton } from '../components/CustomButton'
-import { CustomTitle } from '../components/CustomTitle'
+import { HomeContainer } from '../components/HomeContainer'
 import { Layout } from './Layout'
 
 export const Home = () => {
   return (
     <Layout>
-      <div className="yellow">
-        <CustomTitle leftText="Personajes"  />
-        <CharactersList cardsSideBySide isFlipped={false} />
-        <CustomButton text="Jugar" link="/game" style="button" />
-      </div>
+      <HomeContainer isFlipped={false} />
+      <CustomButton text="Jugar" link="/game" style="button" />
     </Layout>
   )
 }

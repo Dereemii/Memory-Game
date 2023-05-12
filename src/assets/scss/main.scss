@@ -8,10 +8,10 @@
   margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px
+  grid-gap: 20px;
 }
 
-.yellow {
+.cards-container {
   background-color: hsl(55, 100%, 88%);
   margin: 2rem;
   padding: 0.5rem;
@@ -26,7 +26,7 @@ body {
   max-width: 500px;
 }
 
-h1 {
+.main-title {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -51,7 +51,6 @@ h1 {
   margin: 1rem;
   background-color: lavender;
 }
-
 
 .header {
   display: flex;
@@ -88,19 +87,19 @@ h1 {
   justify-content: space-between;
 }
 
-.back img{
+.back img {
   max-width: 100px;
 }
 
-.card{
-  position: relative
+.card {
+  position: relative;
 }
 
 .card .front {
   transform: rotateY(90deg);
-  position: absolute
+  position: absolute;
 }
 
-.flipped .front{
-  transform: rotateY(0deg)
+.front.flipped {
+  transform: rotateY(0deg);
 }

@@ -12,7 +12,7 @@ export const Header = () => {
           className="img-logo"
         />
       </Link>
-      <h1>Juego de Memoria</h1>
+      <h1 className='main-title'>Juego de Memoria</h1>
     </header>
   )
 }
