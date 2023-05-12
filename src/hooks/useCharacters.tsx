@@ -5,6 +5,7 @@ import { GET_CHARACTERS } from '../graphql/queries';
 
 import { useDispatch } from 'react-redux';
 import { setCharacters } from '../store/CharactersSlice';
+import { nanoid } from 'nanoid';
 
 export const useFetchCharacters = () => {
   const page = useMemo(() => generateRandomNumber(), []);
@@ -28,7 +29,11 @@ export const useCharacters = () => {
     if (data) {
       const charactersToRender = data?.characters?.results.slice(0, 6)
       const duplicatedCharacters = duplicateCharacters(charactersToRender);
-      dispatch(setCharacters(duplicatedCharacters));
+      const duplicatedCharactersWithId = duplicatedCharacters.map(character => ({
+        ...character,
+        key: nanoid(2),
+      }));
+      dispatch(setCharacters(duplicatedCharactersWithId));
     }
   }, [data, dispatch]);
   

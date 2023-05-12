@@ -1,16 +1,10 @@
 import { useCharacters } from '../hooks/useCharacters'
 import { CharacterCard } from './CharacterCard'
 
-import {
-  duplicateCharacters,
-  shuffleCharacters,
-  sortCharactersById,
-} from '../utils/utils'
+import { shuffleCharacters, sortCharactersById } from '../utils/utils'
 
 import { Characters } from '../types/Characters'
-
-import { nanoid } from 'nanoid'
-import { useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
@@ -20,16 +14,13 @@ type Props = {
 }
 
 export const CharactersList = ({ cardsSideBySide }: Props) => {
-  const [charactersToRender, setCharactersToRender] = useState<Characters[]>([])
+  const [choiceOne, setChoiceOne] = useState<Characters | null>(null)
+  const [choiceTwo, setChoiceTwo] = useState<Characters | null>(null)
 
   const { loading, error } = useCharacters()
   const characters = useSelector(
     (state: RootState) => state.characters.characters
   )
-
-  useEffect(() => {
-    setCharactersToRender(getCharactersToRender(characters, cardsSideBySide))
-  }, [characters, cardsSideBySide])
 
   const getCharactersToRender = (characters: Characters[], layout: boolean) => {
     return layout
@@ -37,18 +28,32 @@ export const CharactersList = ({ cardsSideBySide }: Props) => {
       : shuffleCharacters(characters)
   }
 
+  const charactersToShow = getCharactersToRender(characters, cardsSideBySide)
+
   const handleChoice = (character: Characters) => {
-    console.log(character)
+    choiceOne ? setChoiceTwo(character) : setChoiceOne(character)
   }
+
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+      if (choiceOne.id === choiceTwo.id) {
+        console.log('son iguales')
+      } else {
+        console.log('son diferentes')
+      }
+      setChoiceOne(null)
+      setChoiceTwo(null)
+    }
+  }, [choiceOne, choiceTwo])
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>
 
   return (
     <div className="card-grid">
-      {charactersToRender.map((character) => (
+      {charactersToShow.map((character) => (
         <CharacterCard
-          key={nanoid()}
+          key={character.key}
           character={character}
           handleChoice={handleChoice}
         />

@@ -4,4 +4,5 @@ export interface Characters {
   status: string
   species: string
   image: string
+  key: string
 }
