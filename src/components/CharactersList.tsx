@@ -12,10 +12,10 @@ import { RootState } from '../store/store'
 
 type Props = {
   cardsSideBySide: boolean
-  flipCards: boolean
+  isFlipped: boolean
 }
 
-export const CharactersList = ({ cardsSideBySide, flipCards }: Props) => {
+export const CharactersList = ({ cardsSideBySide, isFlipped }: Props) => {
   const [choiceOne, setChoiceOne] = useState<Characters | null>(null)
   const [choiceTwo, setChoiceTwo] = useState<Characters | null>(null)
 
@@ -58,7 +58,7 @@ export const CharactersList = ({ cardsSideBySide, flipCards }: Props) => {
           key={character.key}
           character={character}
           handleChoice={handleChoice}
-          flipCards={flipCards}
+          isFlipped={isFlipped}
         />
       ))}
     </div>

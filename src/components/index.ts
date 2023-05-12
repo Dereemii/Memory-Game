@@ -1,2 +1,5 @@
 export * from './CharacterCard'
 export * from './CharactersList'
+export * from './Header'
+export * from './CustomButton'
+export * from './CustomTitle'

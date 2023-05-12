@@ -8,7 +8,7 @@ export const Home = () => {
     <Layout>
       <div className="yellow">
         <CustomTitle leftText="Personajes"  />
-        <CharactersList cardsSideBySide flipCards={false} />
+        <CharactersList cardsSideBySide isFlipped={false} />
         <CustomButton text="Jugar" link="/game" style="button" />
       </div>
     </Layout>
