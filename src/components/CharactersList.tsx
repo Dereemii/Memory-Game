@@ -1,14 +1,12 @@
 import { useCharacters } from '../hooks/useCharacters'
 import { CharacterCard } from './CharacterCard'
 
-import { shuffleCharacters, sortCharactersById } from '../utils/utils'
-
 import { Characters } from '../types/Characters'
 import { useEffect, useState } from 'react'
 
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
-
+import { useSortAndShuffleCharacters } from '../hooks/useSortAndShuffledCharacters'
 
 type Props = {
   cardsSideBySide: boolean
@@ -24,13 +22,10 @@ export const CharactersList = ({ cardsSideBySide, isFlipped }: Props) => {
     (state: RootState) => state.characters.characters
   )
 
-  const getCharactersToRender = (characters: Characters[], layout: boolean) => {
-    return layout
-      ? sortCharactersById(characters)
-      : shuffleCharacters(characters)
-  }
-
-  const charactersToShow = getCharactersToRender(characters, cardsSideBySide)
+  const { sortedAndShuffledCharacters } = useSortAndShuffleCharacters(
+    characters,
+    cardsSideBySide
+  )
 
   const handleChoice = (character: Characters) => {
     choiceOne ? setChoiceTwo(character) : setChoiceOne(character)
@@ -53,7 +48,7 @@ export const CharactersList = ({ cardsSideBySide, isFlipped }: Props) => {
 
   return (
     <div className="card-grid">
-      {charactersToShow.map((character) => (
+      {sortedAndShuffledCharacters.map((character) => (
         <CharacterCard
           key={character.key}
           character={character}
