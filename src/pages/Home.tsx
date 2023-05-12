@@ -1,6 +1,6 @@
 import { CustomButton } from '../components/CustomButton'
 import { HomeContainer } from '../components/HomeContainer'
-import { Layout } from './Layout'
+import { Layout } from '../components/Layout'
 
 export const Home = () => {
   return (
