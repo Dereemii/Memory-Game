@@ -12,7 +12,7 @@ Luego una vez ya tenia la query de graphql como debía duplicar los datos decid�
 
 También cree los types poder definir los datos que vienen desde la query, en este caso investigué cuando es mejor usar types o interfaces y ahí llegué a la conclusión que en el pasado se recomendaba utilizar interfaces para todo, pero no necesariamente es lo más correcto, sin embargo va a depender de el proyecto y el acuerdo, hay varias opiniones divididas pero en general me di cuenta que se usaría más interfaces para describir clases por lo que en este proyecto verás que usé types para definir mi data.
 
-Mi manera de trabajar es hacer e ir refactorizando a la vez, entonces a la medida que iba agregando lógica y el componente se iba haciendo muy grande, decidí ir creando por ejemplo una carpeta Utils, para colocar ahí las funciones de utilidad.
+Mi manera de trabajar es hacer e ir refactorizando a la vez, entonces a la medida que iba agregando lógica y el componente se iba haciendo muy grande, decidí ir creando por ejemplo una carpeta Utils, para colocar ahí las funciones de utilidad. Esto es para poder aplicar SOLID a los distintos componentes y no se vayan haciendo muy grandes o inmanejables.
 
 Con respecto al manejo del estado, en un comienzo partí utilizando el useState para ir guardando la data e irla modificando, pero luego decidí implementar redux toolkit para tener mejor manejo de esta información y poder debuggear en la consola y con las herramientas que lo permite, además esto hace que la aplicación sea mas escalable.
 
@@ -23,6 +23,8 @@ Finalmente se crearon 3 hooks:
 - UseCharacters: en este hook se hace un tratamiento a la data, y se agrega el key y además de la propiedad matched que nos permitirá utilizarla para la lógica del juego, posteriormente esta información se guarda en el store de Redux para su utilización.
 
 - UseMemoryGame: aquí va la lógica del juego y este custom hook se utiliza dos veces una vez para poder renderizar cards en el home y otro para poder renderizarlas en la parte del juego /game
+
+
 
 Rutas:
 
