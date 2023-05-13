@@ -10,7 +10,7 @@
 
 > Memory game using React, Typescript, GraphQl and ReduxToolkit
 
-### ✨ [Demo](www.memori.com)
+### ✨ [Demo](https://memory-game-dereemii.netlify.app/)
 
 ## Install
 
